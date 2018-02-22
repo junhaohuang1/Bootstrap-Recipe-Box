@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Panel, Col, Thumbnail } from "react-bootstrap";
-import API from "../../utils/API";
 const baseURL = "/Recipe-Box";
 
 class Favorites extends Component {
@@ -28,7 +27,7 @@ class Favorites extends Component {
         }
 
         this.setState({recipes: recipes});
-      });  
+      });
     }
   }
 

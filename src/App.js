@@ -67,7 +67,7 @@ class App extends Component {
                     <Route exact path="/results" component={Results} />
                     <Route exact path="/cart" component={Cart} />
                     <Route exact path="/favorites" render={(props) => <Favorites fb={firebase} {...props} />} />
-                    <Route exact path="/recipe" render={(props) => <Ingredients fb={firebase} {...props} />} />
+                    <Route path="/recipe" render={(props) => <Ingredients fb={firebase} {...props} />} />
                     <Route exact path="/login" render={(props) => <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} {...props}/>} />
                     <Route component={NoMatch} />
                   </Switch>
