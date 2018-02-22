@@ -46,20 +46,16 @@ class App extends Component {
 
   componentDidMount() {
     firebase.auth().onAuthStateChanged(
-      (user) => {
-        console.log("mounted user:"+user.uid);
-        this.setState({signedIn: !!user})
-      }
+      (user) => this.setState({signedIn: !!user})
     );
   }
 
   render() {
     return (
       <Grid fluid={true}>
-
         <Router basename="/Recipe-Box">
           <div>
-            <Header fb={firebase}/>
+            <Header fb={firebase} signedin={this.state.signedIn} />
             <Row>
               <Col xs={12} md={12}>
                   <Switch>

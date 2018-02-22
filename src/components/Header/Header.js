@@ -11,8 +11,8 @@ const customStyle = {
     opacity: 0.85
 };
 
-const Header = (props) =>
-  <div>
+const Header = (props) => 
+  (<div>
     <Navbar style={{opacity: 0.75, textAlign: "center"}} fixedTop={true}>
       <Nav bsStyle="tabs" justified>
         <NavItem eventKey={1}>
@@ -24,7 +24,7 @@ const Header = (props) =>
         <NavItem eventKey={3}>
           <Link to="/cart"> Cart </Link>
         </NavItem>
-        {props.fb.auth().currentUser ?
+        {props.signedin ?
           <NavItem eventKey={4} onClick={() => props.fb.auth().signOut()}>
             Logout
           </NavItem>
@@ -46,6 +46,6 @@ const Header = (props) =>
         </Jumbotron>
       </Col>
     </Row>
-  </div>;
+  </div>);
 
 export default Header;

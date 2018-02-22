@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Panel, Col, Thumbnail } from "react-bootstrap";
-const baseURL = "/Recipe-Box";
+import {Link} from "react-router-dom";
 
 class Favorites extends Component {
 
@@ -28,6 +28,8 @@ class Favorites extends Component {
 
         this.setState({recipes: recipes});
       });
+    } else{
+      this.setState({recipes: []});
     }
   }
 
@@ -49,9 +51,11 @@ class Favorites extends Component {
         <Panel.Body>
           {this.state.recipes.map( (element, index) => {
               return (<Col xs={3} md={3} key={index}>
-                <Thumbnail style={customStyle} src={element.image} href={baseURL+"/recipe?id="+element.recipeId}>
+              <Link to={"/recipe?id="+element.recipeId}>
+                <Thumbnail style={customStyle} src={element.image}>
                   <p>{element.title}</p>
                 </Thumbnail>
+              </Link>
               </Col>);
             })
           }
