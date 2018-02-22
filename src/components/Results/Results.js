@@ -101,8 +101,9 @@ class Results extends Component {
 
       result.push(<Row key={recipes[i].id}>
         <Col xs={3} md={3}>
-          <Thumbnail style={customStyle} src={this.state.baseURL + recipes[i].image} href={baseURL+"/recipe?id="+recipes[i].id}>
+          <Thumbnail style={customStyle} src={this.state.baseURL + recipes[i].image}>
             <p>{recipes[i].title}</p>
+            <Link to={baseURL+"/recipe?id="+recipes[i].id}><Link>
           </Thumbnail>
         </Col>
         <Col xs={3} md={3}>

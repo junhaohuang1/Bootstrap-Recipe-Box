@@ -56,21 +56,24 @@ class App extends Component {
   render() {
     return (
       <Grid fluid={true}>
-        <Header fb={firebase}/>
+
         <Router basename="/Recipe-Box">
-          <Row>
-            <Col xs={12} md={12}>
-                <Switch>
-                  <Route exact path="/" component={Search} />
-                  <Route exact path="/results" component={Results} />
-                  <Route exact path="/cart" component={Cart} />
-                  <Route exact path="/favorites" render={(props) => <Favorites fb={firebase} {...props} />} />
-                  <Route exact path="/recipe" render={(props) => <Ingredients fb={firebase} {...props} />} />
-                  <Route exact path="/login" render={(props) => <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} {...props}/>} />
-                  <Route component={NoMatch} />
-                </Switch>
-            </Col>
-          </Row>
+          <div>
+            <Header fb={firebase}/>
+            <Row>
+              <Col xs={12} md={12}>
+                  <Switch>
+                    <Route exact path="/" component={Search} />
+                    <Route exact path="/results" component={Results} />
+                    <Route exact path="/cart" component={Cart} />
+                    <Route exact path="/favorites" render={(props) => <Favorites fb={firebase} {...props} />} />
+                    <Route exact path="/recipe" render={(props) => <Ingredients fb={firebase} {...props} />} />
+                    <Route exact path="/login" render={(props) => <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} {...props}/>} />
+                    <Route component={NoMatch} />
+                  </Switch>
+              </Col>
+            </Row>
+          </div>
         </Router>
       </Grid>
     );
